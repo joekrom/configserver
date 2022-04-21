@@ -1,0 +1,11 @@
+my:
+  greeting: Hello
+  list: null
+  values: 'one, two, three'
+  
+db:
+  connection: connection-string-here
+  host: desktop
+  port: 8893
+management.endpoints.web.exposure.include: '*'
+spring.profile.active: test
