@@ -7,3 +7,9 @@ Second, make sure all requests to *.lxd are sent to that DNS server.
 
 After this, any requests to containername.lxd will be resolved to the container IP address. Make sure to add .lxd to the hostname.
 Note that this config will be forgotten after a reboot.
+
+
+other method
+sudo systemd-resolve --interface lxdbr0 --set-dns 10.78.38.1 --set-domain lxd
+to get the status: systemd-resolve --status
+link:https://superuser.com/questions/1322045/how-to-persist-systemd-resolve-configuration-for-a-particular-network-interfac
