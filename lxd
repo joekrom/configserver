@@ -1,0 +1,9 @@
+How to enable hostname resolution (dns) for lxd containers from the lxd host?
+First, add the DNS server of lxdbr0.
+- 1: resolvectl dns lxdbr0 $(ip -f inet addr show lxdbr0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')
+Second, make sure all requests to *.lxd are sent to that DNS server.
+- 2:sudo resolvectl domain lxdbr0 lxd
+
+
+After this, any requests to containername.lxd will be resolved to the container IP address. Make sure to add .lxd to the hostname.
+Note that this config will be forgotten after a reboot.
